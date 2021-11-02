@@ -18,7 +18,6 @@ if [ $target = hera ]; then target=hera.intel ; fi
 if [ $target = orion ]; then target=orion.intel ; fi
 if [ $target = stampede ]; then target=stampede.intel ; fi
 
-#cd ufs_model.fd/WW3
 cd WW3.fd
 export WW3_DIR=$( pwd -P )/model
 export WW3_BINDIR="${WW3_DIR}/bin"
@@ -35,7 +34,8 @@ export JASPER_LIB=${JASPER_LIB:-$JASPER_ROOT/lib64/libjasper.a}
 export WWATCH3_NETCDF=NC4
 export NETCDF_CONFIG=$NETCDF_ROOT/bin/nc-config
 
-rm  $WWATCH3_ENV
+if [ -f $WWATCH3_ENV]; then rm $WWATCH3_ENV ; fi 
+
 echo '#'                                              > $WWATCH3_ENV
 echo '# ---------------------------------------'      >> $WWATCH3_ENV
 echo '# Environment variables for wavewatch III'      >> $WWATCH3_ENV
