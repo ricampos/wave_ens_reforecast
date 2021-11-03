@@ -24,14 +24,12 @@ export WW3_BINDIR="${WW3_DIR}/bin"
 export WW3_TMPDIR=${WW3_DIR}/tmp
 export WW3_EXEDIR=${WW3_DIR}/exe
 export WW3_COMP=$target 
-export WW3_F90=gfortran
 export SWITCHFILE="${WW3_DIR}/esmf/switch"
 
 export WWATCH3_ENV=${WW3_BINDIR}/wwatch3.env
 export PNG_LIB=${PNG_LIB:-$PNG_ROOT/lib64/libpng.a}
 export Z_LIB=${Z_LIB:-$ZLIB_ROOT/lib/libz.a}
 export JASPER_LIB=${JASPER_LIB:-$JASPER_ROOT/lib64/libjasper.a}
-export WWATCH3_NETCDF=NC4
 export NETCDF_CONFIG=$NETCDF_ROOT/bin/nc-config
 
 if [ -f $WWATCH3_ENV]; then rm $WWATCH3_ENV ; fi 
@@ -41,7 +39,6 @@ echo '# ---------------------------------------'      >> $WWATCH3_ENV
 echo '# Environment variables for wavewatch III'      >> $WWATCH3_ENV
 echo '# ---------------------------------------'      >> $WWATCH3_ENV
 echo '#'                                              >> $WWATCH3_ENV
-echo "WWATCH3_F90      $WW3_F90"                      >> $WWATCH3_ENV
 echo "WWATCH3_DIR      $WW3_DIR"                      >> $WWATCH3_ENV
 echo "WWATCH3_TMP      $WW3_TMPDIR"                   >> $WWATCH3_ENV
 echo 'WWATCH3_SOURCE   yes'                           >> $WWATCH3_ENV
